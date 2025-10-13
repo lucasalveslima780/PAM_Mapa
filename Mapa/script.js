@@ -17,7 +17,8 @@ function success(positiom){
     if(!userMarker){
         map.setView(latlon, 16);
     }
-    if(!userMarker){
+
+    if(userMarker){
         userMarker.setLatlng(latlon);
     } else{
         userMarker = L.marker (latlon)
@@ -46,13 +47,21 @@ if (navigator.geolocation) {
         console.error("Seu navegador não suporta a Geolocalização.");
     }
 
-// function findMe(){
 
-//     navigator.geolocation.getCurrentPosition((location) => {
-//         console.log (location);
-//     });
-// }
+    
+function findMe(){
 
-L.marker([-23.522941, -46.475899]).addTo(map);
+    navigator.geolocation.getCurrentPosition((location) => {
+        console.log (location);
+    });
+}
+
+
+//Aula de apresentação
+  document.getElementById("Set Marker").addEventListener("click", function () {
+    alert("Marcador definido!");
+  });
+
+//L.marker([-23.522941, -46.475899]).addTo(map);
 
 

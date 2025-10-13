@@ -1,1 +1,14 @@
-#map { height: 500px; }
+#map { height: 800px; }
+
+#Set\ Marker {
+    padding: 10px 20px;
+    background-color: #007bff; /* azul primário */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
