@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Mapa</title>
+    <link rel="stylesheet" href="PAM_Mapa/style.css" />
+    <link rel="manifest" href="PAM_Mapa/manifest.json" />
+    <link rel="icon" href="PAM_Mapa/icons/icon-192.png" />
+    <link rel="icon" href="PAM_Mapa/icons/icon-512.png" />    
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="map"></div>
+    <button id="Set Marker"> Clique para marcar sua posição! </button>
+
+    <script src="PAM_Mapa/script.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('Service Worker registrado', reg))
+        .catch(err => console.error('Erro ao registrar Service Worker', err));
+    }
+    </script>
+</body>
+</html>
