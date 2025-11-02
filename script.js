@@ -8,10 +8,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let userMarker = null;
 let userCircle = null;
 
-function success(positiom){
-    const lat = positiom.coords.latitude;
-    const lon = positiom.coords.longitude;
-    const accuracy = positiom.coords.accuracy
+function success(position){
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const accuracy = position.coords.accuracy
     const latlon = [lat, lon];
 
     if(!userMarker){
@@ -19,7 +19,7 @@ function success(positiom){
     }
 
     if(userMarker){
-        userMarker.setLatlng(latlon);
+        userMarker.setLatLng(latlon);
     } else{
         userMarker = L.marker (latlon)
             .addTo (map)
@@ -28,18 +28,20 @@ function success(positiom){
     }
 
     if(userCircle){
-        userCircle.setLatlng(latlon).setRadius
+        userCircle.setLatLng(latlon).setRadius(accuracy);
     } else {
-        userCircle = L.cicle(latlon, {radius: accuracy}).addTo(map);
+        userCircle = L.circle(latlon, {radius: accuracy}).addTo(map);
     }
 
 }
-function error (){}
+function error (){
+    console.error('Erro ao obter localização');
+}
 
 if (navigator.geolocation) {
     const options = {
-        enableHighAccurracy: true,
-        setTimeout: 5000,
+        enableHighAccuracy: true,
+        Timeout: 5000,
         maximumAge: 0,
     };
     navigator.geolocation.watchPosition(success,error,options);
@@ -58,9 +60,9 @@ function findMe(){
 
 
 //Aula de apresentação
-  document.getElementById("Set Marker").addEventListener("click", function () {
-    alert("Marcador definido!");
-  });
+//document.getElementById("setMarker").addEventListener("click", function () {
+//    alert("Marcador definido!");
+//  });
 
 //L.marker([-23.522941, -46.475899]).addTo(map);
 
